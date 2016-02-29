@@ -1,0 +1,21 @@
+
+<h1>Vote the Style</h1>
+
+<hr><br>
+
+
+<ul class="style">
+	<li ng-repeat="photo in photos">
+		<img src="/assets/photos/{{photo.name}}.jpg"/>
+			<div class="button-holder">
+				<form action="./cute" method="post">
+					<input type="hidden" name="photo" value="{{this.name}}" />
+					<input type="submit" value="Cute!" />
+				</form>
+				<form action="./notcute" method="post">
+					<input type="hidden" name="photo" value="{{this.name}}" />
+					<input type="submit" value="Not Cute!" />
+				</form>
+			</div>
+	</li>
+</ul>
