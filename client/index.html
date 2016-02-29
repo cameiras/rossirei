@@ -28,10 +28,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-           <li><a href="#/styleselector">Vote the Styles</a></li>
-            <li><a href="#/standings">Standings</a></li>
+           
             <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
             <li ng-if="!isAuthenticated()"><a href="#/signup">Signup</a></li>
+            <li ng-if="isAuthenticated()"><a href="#/styleselector">Vote the Styles</a></li>
+            <li ng-if="isAuthenticated()"><a href="#/standings">Standings</a></li>
             <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
             <li ng-if="isAuthenticated()"><a href="#/profile">Profile</a></li>
           </ul>
