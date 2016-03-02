@@ -6,6 +6,9 @@ var config = require('../../_config');
 
 
 var User = new Schema({
+  name: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,

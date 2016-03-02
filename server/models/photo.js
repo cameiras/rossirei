@@ -11,7 +11,9 @@ var Photo = new Schema({
   },
   brand: {
     type: String
-  }
+  },
+  liked: [],
+  disliked: []
 });
 
 module.exports = mongoose.model('photos', Photo);

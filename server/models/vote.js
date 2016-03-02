@@ -3,7 +3,14 @@ var Schema = mongoose.Schema;
 
 var Vote = new Schema({
   photo_id: {
-    type: String
+        type: Schema.ObjectId,
+        ref: 'Photo',
+  },
+  photoName: {
+       type: String,
+  },
+  userName: {
+       type: String,
   },
   like: {
     type: Number
@@ -12,10 +19,12 @@ var Vote = new Schema({
     type: Number
   },
   user_id: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'User',
   },
   campaign_id: {
-    type: String
+        type: Schema.ObjectId,
+        ref: 'Campaign',
   },
 
 });

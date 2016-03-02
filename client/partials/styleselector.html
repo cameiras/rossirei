@@ -8,13 +8,13 @@
 	<li ng-repeat="photo in photos">
 		<img src="/assets/photos/{{photo.name}}.jpg"/>
 			<div class="button-holder">
-				<form action="./cute" method="post">
-					<input type="hidden" name="photo" value="{{this.name}}" />
-					<input type="submit" value="Cute!" />
+				<form method="post" ng-submit="like(photo._id, photo.name)"  name="form.likeForm" ng-class="{ 'selected-class-name': photo.liked_bool }" ng-click="itemClicked($index)" >
+					<input type="hidden" name="photoName" value="{{photo.name}}"/>
+					<input type="submit" value="Like!"/>
 				</form>
-				<form action="./notcute" method="post">
-					<input type="hidden" name="photo" value="{{this.name}}" />
-					<input type="submit" value="Not Cute!" />
+				<form method="post" ng-submit="dislike(photo._id, photo.name)" ng-class="{ 'selected-class-name': photo.disliked_bool }">
+					<input type="hidden" name="photo" value="{{photo.name}}" />
+					<input type="submit" value="Dislike!" />
 				</form>
 			</div>
 	</li>

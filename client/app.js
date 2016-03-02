@@ -1,5 +1,11 @@
 var app = angular.module('MyApp', ['ngRoute', 'satellizer']);
 
+/*application.constant('_',
+    window._
+);*/
+
+app.constant('_', window._);
+
 app.config(function($routeProvider, $authProvider, $locationProvider) {
 
   // *** satellizer settings *** //
@@ -57,11 +63,17 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
       controller: 'standingsCtrl',
       access: {restricted: true}
     })
+    .when('/order', {
+      templateUrl: 'partials/order.html',
+      controller: 'orderCtrl',
+      access: {restricted: true}
+    })
     .otherwise('/');
 
 });
 
 app.run(function ($rootScope, $location, $route, $auth) {
+  $rootScope._ = window._;
   $rootScope.$on('$routeChangeStart', function (event, next, current) {
     if (next.access && next.access.restricted && !$auth.isAuthenticated()) {
       $location.path('/login');
