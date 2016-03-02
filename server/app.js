@@ -70,7 +70,7 @@ app.use(function(err, req, res, next) {
 /*
 // Load all images from the server/photos folder in the database
 var photos_on_disk = fs.readdirSync(__dirname + '/photos');
-
+console.log('disk ' + __dirname + '/photos');
 // Insert the photos in the database. This is executed on every 
 // start up of your application, but because there is a unique
 // constraint on the name field, subsequent writes will fail 
@@ -78,7 +78,11 @@ var photos_on_disk = fs.readdirSync(__dirname + '/photos');
 
 photos_on_disk.forEach(function(photo){
   var name = photo.replace('.jpg', '');
-  Photo.create({ name: name, season: 'ss16', brand: 'Malloni' }, function (err, small) {
+  var split = photo.split("_");
+  console.log('brand ' + split[0]);
+  console.log('season ' + split[1]);
+
+  Photo.create({ name: name, season: split[1], brand: split[0], comment: '' }, function (err, small) {
     if (err) {
        console.log(err);
     }

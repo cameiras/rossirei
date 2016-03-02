@@ -6,8 +6,16 @@
 
 <ul class="style">
 	<li ng-repeat="photo in photos">
+		<div>{{photo.brand}}</div>
 		<img src="/assets/photos/{{photo.name}}.jpg"/>
+			<div class="comment">
+				<form method="post" ng-submit="comment(photo._id, photo.comment)" name="form.commentForm"  >
+					<textarea class="form-control" rows="3" type="text" name="textComment" name="text" ng-model="photo.comment"/></textarea>
+					<input class="btn btn-default" type="submit" value="Add a comment" placeholder="Add a Comment.." />
+				</form>
+			</div>
 			<div class="button-holder">
+				
 				<form method="post" ng-submit="like(photo._id, photo.name)"  name="form.likeForm" ng-class="{ 'selected-class-name': photo.liked_bool }" ng-click="itemClicked($index)" >
 					<input type="hidden" name="photoName" value="{{photo.name}}"/>
 					<input type="submit" value="Like!"/>

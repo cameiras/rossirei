@@ -21,13 +21,20 @@ router.post('/styleselector', function(req, res) {
 });
 
 
+router.post('/comment', function(req, res) {
+	Photo.findOne({ _id: ObjectId(req.body.photoId) }, function(err, photo) {
+		photo.comment = req.body.comment;
+		photo.save();
+	    res.send({ comment: req.body.photoId });  
+	});
+});
+
 router.post('/like', function(req, res) {
 	Photo.findOne({ _id: ObjectId(req.body.photoId) }, function(err, photo) {
-		photo.liked = true;
 		if(_.indexOf(photo.liked, req.body.userId) < 0) {
 			photo.liked.push(req.body.userId);
 		} 
-		if(_.indexOf(photo.disliked, req.body.userId) > 0) {
+		if(_.indexOf(photo.disliked, req.body.userId) >= 0) {
 			photo.disliked = _.filter(photo.disliked, function(x) { return x != req.body.userId });
 		}
 		photo.save();
@@ -37,11 +44,10 @@ router.post('/like', function(req, res) {
 
 router.post('/dislike', function(req, res) {
 	Photo.findOne({ _id: ObjectId(req.body.photoId) }, function(err, photo) {
-		photo.liked = true;
 		if(_.indexOf(photo.disliked, req.body.userId) < 0) {
 			photo.disliked.push(req.body.userId);
 		} 
-		if(_.indexOf(photo.liked, req.body.userId) > 0) {
+		if(_.indexOf(photo.liked, req.body.userId) >= 0) {
 			photo.liked = _.filter(photo.liked, function(x) { return x != req.body.userId });
 		}
 		photo.save();

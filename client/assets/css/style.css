@@ -164,7 +164,18 @@ body > img{
 	background: url('../img/sprite.svg') #f3818d 17px 18px no-repeat;
 }
 
+/*-------------------------
+	Vote
+--------------------------*/
 
+.comment{
+	padding: 1rem;
+    border-radius: 3px;
+}
+
+.form-control{
+	margin: 0.5rem;
+}
 
 /*-------------------------
 	Standings List

@@ -3,6 +3,7 @@
 <hr><br>
 <ul class="style">
 	<li ng-repeat="standing in standings">
+		<div>{{standing.brand}}</div>
 		<img src="/assets/photos/{{standing.name}}.jpg"/>
 		<p class="up">{{standing.liked.length}}</p>
 		<p class="down">{{standing.disliked.length}}</p>

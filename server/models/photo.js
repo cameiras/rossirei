@@ -12,6 +12,9 @@ var Photo = new Schema({
   brand: {
     type: String
   },
+  comment: {
+    type: String
+  },
   liked: [],
   disliked: []
 });
