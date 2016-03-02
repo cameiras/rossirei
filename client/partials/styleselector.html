@@ -7,7 +7,7 @@
 <ul class="style">
 	<li ng-repeat="photo in photos">
 		<div>{{photo.brand}}</div>
-		<img src="/assets/photos/{{photo.name}}.jpg"/>
+		<img src="https://cdn.shopify.com/s/files/1/1048/0440/files/{{photo.name}}.jpg?16952216431683044896"/>
 			<div class="comment">
 				<form method="post" ng-submit="comment(photo._id, photo.comment)" name="form.commentForm"  >
 					<textarea class="form-control" rows="3" type="text" name="textComment" name="text" ng-model="photo.comment"/></textarea>
