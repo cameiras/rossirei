@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Photo = require('./models/photo.js');
+//var Test = require('./models/test.js');
+var Schema = mongoose.Schema;
 var fs = require('fs');
 
 
@@ -67,6 +69,16 @@ app.use(function(err, req, res, next) {
   });
 });
 
+ /*Test.create({ name: 'test', season: 'season', brand: 'brand', comment: '', disliked: [
+        "56d77596fe079311003f7720"
+    ] }, function (err, small) {
+    if (err) {
+       console.log(err);
+    }
+    // saved!
+  })*/
+
+//Test.path('test.disliked', [{ type : Schema.ObjectId, ref: 'User' }]) 
 /*
 // Load all images from the server/photos folder in the database
 var photos_on_disk = fs.readdirSync(__dirname + '/photos');
